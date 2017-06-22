@@ -97,3 +97,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Working on Mac is annoying sometimes
+.DS_Store

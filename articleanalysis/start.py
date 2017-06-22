@@ -1,7 +1,14 @@
-import pyPdf
+from pyPdf import PdfFileReader
 
-pdf = pyPdf.PdfFileReader(open("docs/FJTurner-Frontier_Significance-1893.pdf", "rb"))
+def get_pdf(filename):
+    return PdfFileReader(open(filename, "rb"))
 
-for i, page in enumerate(pdf.pages):
-    print "Page %d" % i
-    print page.extractText()
+def page_to_string(pdf, pagenum=0):
+    return pdf.pages[pagenum].extractText()
+
+
+pdf = get_pdf('docs/FJTurner-Frontier_Significance-1893.pdf')
+
+for pagenum in range(0, pdf.getNumPages() / 4):
+    print "Page %d" % pagenum
+    print page_to_string(pdf, pagenum)
