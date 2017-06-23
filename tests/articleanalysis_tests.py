@@ -1,11 +1,6 @@
 from nose.tools import *
-import articleanalysis
-
-def setup():
-    print "SETUP!"
-
-def teardown():
-    print "TEAR DOWN!"
+from articleanalysis.start import FileReader
 
 def test_basic():
-    print "I RAN!"
+    reader = FileReader()
+    assert reader.pdf.getNumPages() > 0
